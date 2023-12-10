@@ -1,0 +1,10 @@
+{
+  "spellcheck": false,
+  "useTab": false,
+  "useMarkdownLinks": true,
+  "promptDelete": false,
+  "attachmentFolderPath": "asserts",
+  "showInlineTitle": false,
+  "strictLineBreaks": false,
+  "userIgnoreFilters": null
+}

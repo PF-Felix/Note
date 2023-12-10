@@ -1,0 +1,178 @@
+{
+  "main": {
+    "id": "2703503b0d242812",
+    "type": "split",
+    "children": [
+      {
+        "id": "cb5fe247a33b39e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "17bf787463306fe9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/VMware/1、安装步骤.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "974ca9582099ebd9",
+    "type": "split",
+    "children": [
+      {
+        "id": "0fe838683f766e45",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f77c66248fdf64b8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "bcbf0b0fe13aa9b7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "74287ad2951af388",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 283.5
+  },
+  "right": {
+    "id": "522626cc2a7a0b5c",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3d7248033ba48c1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ad4af74e24fba778",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "编程/VMware/1、安装步骤.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "8522d42cf924c359",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "编程/VMware/1、安装步骤.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4228470667ef5a22",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "0afc625cc67b33d1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "编程/VMware/1、安装步骤.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 289.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "17bf787463306fe9",
+  "lastOpenFiles": [
+    "obsidian/样式测试.md",
+    "asserts/Pasted image 20231211025852.png",
+    "编程/VMware/3、制作模板机.md",
+    "java-demo/target/classes/NoteTest.class",
+    "asserts/Pasted image 20231211020731.png",
+    "asserts/Pasted image 20231211020612.png",
+    "asserts/Pasted image 20231211020532.png",
+    "asserts/Pasted image 20231211020218.png",
+    "asserts/Pasted image 20231210234800.png",
+    "asserts/Pasted image 20231210234754.png",
+    "asserts/Pasted image 20231210234748.png",
+    "asserts/Pasted image 20231210234738.png",
+    "asserts/Pasted image 20231210234731.png",
+    "编程/VMware/2、配置固定IP地址.md",
+    "java-demo/src/main/java/NoteTest.java",
+    "java-demo/target/classes/MarkdownTest.class",
+    "java-demo/src/main/java/MarkdownTest.java~",
+    "java-demo/target/classes",
+    "java-demo/target/generated-sources/annotations",
+    "java-demo/target/generated-sources",
+    "java-demo/target",
+    "java-demo/src/main/java/MarkdownTest.java",
+    "java-demo/src/test/java",
+    "编程/VMware/1、安装步骤.md",
+    "编程/VMware.md",
+    "未命名.canvas"
+  ]
+}

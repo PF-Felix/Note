@@ -1,0 +1,28 @@
+/* 粗体 删除线 斜体 代码 */
+.cm-strong,
+.cm-strikethrough,
+.cm-em,
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting)
+{
+    
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    text-decoration: none;
+    border: 0.1em solid;
+    border-radius: 1rem;
+    padding: 1px 5px 1px 5px;
+    margin: 0 .2rem;
+}
+.cm-em {
+    color: #FFCC66;
+}
+.cm-strong {
+    color: #FF9800;
+}
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
+    color: #C792EA;
+}
+.cm-strikethrough {
+    color: #42B883;
+}

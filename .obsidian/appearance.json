@@ -1,0 +1,13 @@
+{
+  "accentColor": "",
+  "showViewHeader": false,
+  "enabledCssSnippets": [
+    "theme"
+  ],
+  "cssTheme": "",
+  "textFontFamily": "Cascadia Mono,微软雅黑",
+  "baseFontSize": 14,
+  "monospaceFontFamily": "Cascadia Mono,微软雅黑",
+  "translucency": false,
+  "interfaceFontFamily": "Cascadia Mono,微软雅黑"
+}

@@ -13,13 +13,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "编程/VMware/1、安装步骤.md",
+                "file": "记录/恒达智控周报.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "cec0bbf52088d37b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "记录/看过的马士兵课程.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "be10d930a901264e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "obsidian/obsidian.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -48,7 +73,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "TODO",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +90,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -85,7 +111,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "编程/VMware/1、安装步骤.md",
+                "file": "obsidian/obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +128,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "编程/VMware/1、安装步骤.md",
+                "file": "obsidian/obsidian.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +151,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "编程/VMware/1、安装步骤.md"
+                "file": "obsidian/obsidian.md"
               }
             }
           }
@@ -134,7 +160,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 289.5
+    "width": 290.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -146,21 +172,29 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "17bf787463306fe9",
+  "active": "bcbf0b0fe13aa9b7",
   "lastOpenFiles": [
+    "记录/恒达智控周报.md",
+    "记录/看过的马士兵课程.md",
+    "obsidian/obsidian.md",
+    "asserts/Pasted image 20231211033129.png",
+    "asserts/Pasted image 20231211032644.png",
+    "asserts/Pasted image 20231211032624.png",
+    "快速笔记/编程规范_阿里规约.md",
+    "快速笔记",
     "obsidian/样式测试.md",
+    "asserts/Pasted image 20231211033539.png",
+    "编程/VMware/1、安装步骤.md",
+    "asserts/Pasted image 20231211032110.png",
+    "asserts/Pasted image 20231211031939.png",
+    "asserts/Pasted image 20231211031307.png",
+    "记录/看过的马士兵课程",
+    "记录",
     "asserts/Pasted image 20231211025852.png",
     "编程/VMware/3、制作模板机.md",
     "java-demo/target/classes/NoteTest.class",
     "asserts/Pasted image 20231211020731.png",
     "asserts/Pasted image 20231211020612.png",
-    "asserts/Pasted image 20231211020532.png",
-    "asserts/Pasted image 20231211020218.png",
-    "asserts/Pasted image 20231210234800.png",
-    "asserts/Pasted image 20231210234754.png",
-    "asserts/Pasted image 20231210234748.png",
-    "asserts/Pasted image 20231210234738.png",
-    "asserts/Pasted image 20231210234731.png",
     "编程/VMware/2、配置固定IP地址.md",
     "java-demo/src/main/java/NoteTest.java",
     "java-demo/target/classes/MarkdownTest.class",
@@ -168,10 +202,6 @@
     "java-demo/target/classes",
     "java-demo/target/generated-sources/annotations",
     "java-demo/target/generated-sources",
-    "java-demo/target",
-    "java-demo/src/main/java/MarkdownTest.java",
-    "java-demo/src/test/java",
-    "编程/VMware/1、安装步骤.md",
     "编程/VMware.md",
     "未命名.canvas"
   ]

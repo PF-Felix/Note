@@ -26,3 +26,8 @@
 .cm-strikethrough {
     color: #42B883;
 }
+
+/* 超链接 */
+.markdown-source-view.mod-cm6 .cm-link .cm-underline {
+    text-decoration: none;
+}

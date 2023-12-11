@@ -1,10 +1,10 @@
 /* 粗体 删除线 斜体 代码 */
-.cm-strong,
-.cm-strikethrough,
-.cm-em,
-.cm-s-obsidian .cm-inline-code:not(.cm-formatting)
+.cm-strong, strong,
+.cm-strikethrough, del,
+.cm-em, em,
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting), .markdown-rendered code
 {
-    
+
     font-weight: normal;
     font-style: normal;
     font-size: 14px;
@@ -14,16 +14,16 @@
     padding: 1px 5px 1px 5px;
     margin: 0 .2rem;
 }
-.cm-em {
+.cm-em, em {
     color: #FFCC66;
 }
-.cm-strong {
+.cm-strong, strong {
     color: #FF9800;
 }
-.cm-s-obsidian .cm-inline-code:not(.cm-formatting) {
+.cm-s-obsidian .cm-inline-code:not(.cm-formatting), .markdown-rendered code {
     color: #C792EA;
 }
-.cm-strikethrough {
+.cm-strikethrough, del {
     color: #42B883;
 }
 
@@ -31,3 +31,19 @@
 .markdown-source-view.mod-cm6 .cm-link .cm-underline {
     text-decoration: none;
 }
+
+/* 图片: 加边框 缩放 */
+img {
+    border: 2px solid white;/*图片加边框*/
+}
+img[src*="zoom=30"] {zoom:30%;}
+img[src*="zoom=35"] {zoom:35%;}
+img[src*="zoom=40"] {zoom:40%;}
+img[src*="zoom=45"] {zoom:45%;}
+img[src*="zoom=50"] {zoom:50%;}
+img[src*="zoom=55"] {zoom:55%;}
+img[src*="zoom=60"] {zoom:60%;}
+img[src*="zoom=65"] {zoom:65%;}
+img[src*="zoom=70"] {zoom:70%;}
+img[src*="zoom=75"] {zoom:75%;}
+img[src*="zoom=80"] {zoom:80%;}

@@ -2,33 +2,37 @@
   "editor:toggle-bold": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": "F1"
+      "key": "1"
     }
   ],
   "editor:toggle-strikethrough": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": "F2"
+      "key": "2"
     }
   ],
   "editor:toggle-italics": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": "F3"
+      "key": "3"
     }
   ],
   "editor:toggle-code": [
     {
       "modifiers": [
-        "Mod"
+        "Mod",
+        "Shift"
       ],
-      "key": "F4"
+      "key": "4"
     }
   ],
   "editor:insert-wikilink": [

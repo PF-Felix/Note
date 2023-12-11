@@ -20,31 +20,55 @@
             }
           },
           {
-            "id": "cec0bbf52088d37b",
+            "id": "af8b4f09fcef9abd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "记录/看过的马士兵课程.md",
+                "file": "编程/分布式系统/CAP原则 & Base理论.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "be10d930a901264e",
+            "id": "cec0bbf52088d37b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "obsidian/obsidian.md",
+                "file": "obsidian/样式测试.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5ab33cf62a41b94f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "编程/Hadoop分布式文件系统HDFS/数据持久化.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7d91afc9614cbb1a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "卡片/内存数据持久化的两种方式.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -73,7 +97,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "TODO",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,8 +114,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -111,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "obsidian/obsidian.md",
+                "file": "编程/分布式系统/CAP原则 & Base理论.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "obsidian/obsidian.md",
+                "file": "编程/分布式系统/CAP原则 & Base理论.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -151,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "obsidian/obsidian.md"
+                "file": "编程/分布式系统/CAP原则 & Base理论.md"
               }
             }
           }
@@ -160,7 +183,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 290.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,17 +195,24 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "bcbf0b0fe13aa9b7",
+  "active": "af8b4f09fcef9abd",
   "lastOpenFiles": [
     "记录/恒达智控周报.md",
-    "记录/看过的马士兵课程.md",
+    "编程/Hadoop分布式文件系统HDFS/数据持久化.md",
+    "编程/分布式系统/CAP原则 & Base理论.md",
+    "asserts/Pasted image 20231211090019.png",
+    "编程/分布式系统",
+    "obsidian/样式测试.md",
+    "卡片/内存数据持久化的两种方式.md",
     "obsidian/obsidian.md",
+    "卡片",
+    "编程/Hadoop分布式文件系统HDFS",
+    "快速笔记/编程规范_阿里规约.md",
+    "记录/看过的马士兵课程.md",
     "asserts/Pasted image 20231211033129.png",
     "asserts/Pasted image 20231211032644.png",
     "asserts/Pasted image 20231211032624.png",
-    "快速笔记/编程规范_阿里规约.md",
     "快速笔记",
-    "obsidian/样式测试.md",
     "asserts/Pasted image 20231211033539.png",
     "编程/VMware/1、安装步骤.md",
     "asserts/Pasted image 20231211032110.png",
@@ -194,14 +224,10 @@
     "编程/VMware/3、制作模板机.md",
     "java-demo/target/classes/NoteTest.class",
     "asserts/Pasted image 20231211020731.png",
-    "asserts/Pasted image 20231211020612.png",
     "编程/VMware/2、配置固定IP地址.md",
     "java-demo/src/main/java/NoteTest.java",
     "java-demo/target/classes/MarkdownTest.class",
     "java-demo/src/main/java/MarkdownTest.java~",
-    "java-demo/target/classes",
-    "java-demo/target/generated-sources/annotations",
-    "java-demo/target/generated-sources",
     "编程/VMware.md",
     "未命名.canvas"
   ]

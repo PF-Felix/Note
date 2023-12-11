@@ -6,5 +6,6 @@
   "attachmentFolderPath": "asserts",
   "showInlineTitle": false,
   "strictLineBreaks": false,
-  "userIgnoreFilters": null
+  "userIgnoreFilters": null,
+  "readableLineLength": false
 }

@@ -7,5 +7,7 @@
   "showInlineTitle": false,
   "strictLineBreaks": false,
   "userIgnoreFilters": null,
-  "readableLineLength": false
+  "readableLineLength": false,
+  "foldIndent": false,
+  "foldHeading": false
 }

@@ -1,6 +1,6 @@
 # CAP原则
 
-![](Pasted%20image%2020231211090019.png)
+![](https://cdn.nlark.com/yuque/0/2023/png/267064/1702273526403-096f49c7-a05b-49bc-a560-7418c348fa29.png?x-oss-process=image%2Fresize%2Cw_1128%2Climit_0)
 
 **一致性**
 分布式系统中的所有数据备份在同一时刻是否是同样的值

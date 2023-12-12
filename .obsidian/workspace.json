@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "obsidian/obsidian.md",
+                "file": "软件/obsidian.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -60,7 +61,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#分布式",
+                "query": "tag:#大数据",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -73,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 260.5
+    "width": 284.5
   },
   "right": {
     "id": "522626cc2a7a0b5c",
@@ -89,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "记录/找工作/马士兵课程第二次购买.md",
+                "file": "软件/obsidian.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +107,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "记录/找工作/马士兵课程第二次购买.md",
+                "file": "软件/obsidian.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +130,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "记录/找工作/马士兵课程第二次购买.md"
+                "file": "软件/obsidian.md"
               }
             }
           }
@@ -150,15 +151,39 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "17bf787463306fe9",
+  "active": "af8b4f09fcef9abd",
   "lastOpenFiles": [
-    "记录/找工作/马士兵课程看过的课.md",
+    "card/corn表达式.md",
+    "软件/样式测试.md",
+    "软件/obsidian.md",
+    "软件/Git.md",
+    "card/操作系统_缓存一致性协议.md",
+    "软件/VMware.md",
+    "软件",
+    "新建文件夹",
+    "Git.md",
+    "corn表达式.md",
+    "常用的操作系统命令.md",
+    "Hadoop分布式文件系统HDFS.md",
+    "VMware.md",
+    "card/分布式系统_CAP原则_Base理论.md",
+    "card/内存数据持久化的两种方式.md",
+    "asserts/Pasted image 20231212133612.png",
+    "asserts/Pasted image 20231212133524.png",
     "记录/找工作/马士兵课程第二次购买.md",
+    "card/缓存一致性协议.md",
+    "obsidian/obsidian.md",
+    "编程/VMware.md",
+    "分布式系统",
+    "编程/常用的操作系统命令.md",
+    "记录/生活.md",
+    "记录/账号.md",
+    "生活",
+    "未命名.md",
+    "记录/找工作/马士兵课程看过的课.md",
     "记录/找工作/简历与面试2023.md",
     "记录/找工作/简历2023.md",
-    "编程/VMware.md",
     "记录/恒达智控.md",
-    "编程/常用的操作系统命令.md",
     "asserts/Pasted image 20231211211038.png",
     "asserts/Pasted image 20231211210713.png",
     "asserts/Pasted image 20231211210343.png",
@@ -166,29 +191,14 @@
     "asserts/Pasted image 20231211205557.png",
     "asserts/Pasted image 20231211205516.png",
     "asserts/Pasted image 20231211205356.png",
-    "obsidian/obsidian.md",
-    "编程/分布式系统/CAP原则 & Base理论.md",
-    "编程/Hadoop分布式文件系统HDFS.md",
-    "obsidian/样式测试.md",
-    "快速笔记/编程规范_阿里规约.md",
-    "编程/VMware/3、制作模板机.md",
-    "编程/VMware/2、配置固定IP地址.md",
     "asserts/Pasted image 20231211201737.png",
     "asserts/Pasted image 20231211201648.png",
-    "yuque.md",
-    "asserts/Pasted image 20231211090019.png",
-    "asserts/Pasted image 20231211033539.png",
-    "card/内存数据持久化的两种方式.md",
     "asserts/Pasted image 20231211194454",
     "asserts",
     "编程/分布式系统",
     "card",
     "编程/Hadoop分布式文件系统HDFS",
     "快速笔记",
-    "记录/看过的马士兵课程",
-    "记录",
-    "java-demo/target/classes/NoteTest.class",
-    "java-demo/src/main/java/NoteTest.java",
     "未命名.canvas"
   ]
 }

@@ -9,7 +9,7 @@ public class NoteTest {
     /**
      * 笔记目录是当前项目的父目录
      */
-    private final File noteFolder = new File(System.getProperty("user.dir")).getParentFile();
+    private final File noteFolder = new File(System.getProperty("user.dir")).getParentFile().getParentFile().getParentFile();
 
     @Test
     public void test() {

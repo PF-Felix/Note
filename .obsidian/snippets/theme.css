@@ -50,3 +50,18 @@ img[alt*="zoom=65"] {zoom:65%;}
 img[alt*="zoom=70"] {zoom:70%;}
 img[alt*="zoom=75"] {zoom:75%;}
 img[alt*="zoom=80"] {zoom:80%;}
+
+/* 标题字体颜色 */
+.HyperMD-header-1,
+.HyperMD-header-2,
+.HyperMD-header-3,
+.HyperMD-header-4,
+.HyperMD-header-5,
+.HyperMD-header-6 {
+    color: #569CD6;
+}
+
+/* 引用块颜色 */
+.cm-s-obsidian span.cm-quote {
+    color: #EBEBEB99;
+}

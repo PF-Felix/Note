@@ -50,6 +50,7 @@ img[alt*="zoom=65"] {zoom:65%;}
 img[alt*="zoom=70"] {zoom:70%;}
 img[alt*="zoom=75"] {zoom:75%;}
 img[alt*="zoom=80"] {zoom:80%;}
+img[alt*="zoom=85"] {zoom:85%;}
 
 /* 标题字体颜色 */
 .HyperMD-header-1,

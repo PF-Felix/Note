@@ -70,5 +70,14 @@
       ],
       "key": "3"
     }
+  ],
+  "switcher:open": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Q"
+    }
   ]
 }

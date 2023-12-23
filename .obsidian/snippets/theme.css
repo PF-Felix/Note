@@ -36,6 +36,7 @@
 img {
     border: 2px solid white;/*图片加边框*/
 }
+img[alt*="zoom=10"] {zoom:10%;}
 img[alt*="zoom=15"] {zoom:15%;}
 img[alt*="zoom=20"] {zoom:20%;}
 img[alt*="zoom=25"] {zoom:25%;}

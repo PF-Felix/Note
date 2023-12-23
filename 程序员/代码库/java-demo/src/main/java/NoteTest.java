@@ -1,8 +1,13 @@
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
+import lombok.Data;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 
 public class NoteTest {
 
@@ -15,7 +20,7 @@ public class NoteTest {
     public void test() {
         System.out.println("当前项目的路径：" + noteFolder.getAbsolutePath());
         System.out.println("笔记数量：" + getFiles(noteFolder, ".md").length);
-        System.out.println("图片数量：" + getFiles(noteFolder, ".png").length);
+        System.out.println("附件数量：" + getFiles(noteFolder, ".png", ".jpg", ".pdf").length);
     }
 
     /**
@@ -25,7 +30,7 @@ public class NoteTest {
     @Test
     public void removeOnUsefulImages() throws IOException {
         //所有图片
-        File[] images = getFiles(noteFolder, ".png");
+        File[] images = getFiles(noteFolder, ".png", ".jpg", ".pdf");
         //所有 markdown 文件
         File[] mdFiles = getFiles(noteFolder, ".md");
         for (File image : images) {
@@ -53,10 +58,18 @@ public class NoteTest {
     /**
      * 获取一个目录下的所有 .md 文件
      */
-    private File[] getFiles(File mdFolder, String suffix) {
-        FilenameFilter filter = (dir, name) -> name.endsWith(suffix);
+    private File[] getFiles(File mdFolder, String... suffix) {
+        List<FilenameFilter> filenameFilterList = new ArrayList<>();
+        Iterator<String> iterator = Arrays.stream(suffix).iterator();
+        while (iterator.hasNext()) {
+            String currentSuffix = iterator.next();
+            FilenameFilter filter = (dir, name) -> name.endsWith(currentSuffix);
+            filenameFilterList.add(filter);
+        }
+        MultiFilenameFilter multiFilenameFilter = new MultiFilenameFilter(filenameFilterList);
+
         //根目录下的所有文件
-        File[] files = ArrayUtil.defaultIfEmpty(mdFolder.listFiles(filter), new File[0]);
+        File[] files = ArrayUtil.defaultIfEmpty(mdFolder.listFiles(multiFilenameFilter), new File[0]);
         //根目录下的所有文件夹
         File[] subFolders = ArrayUtil.defaultIfEmpty(mdFolder.listFiles(File::isDirectory), new File[0]);
         for (File subFolder : subFolders) {
@@ -69,5 +82,21 @@ public class NoteTest {
             }
         }
         return files;
+    }
+
+    @Data
+    static
+    class MultiFilenameFilter implements FilenameFilter {
+        private final List<FilenameFilter> filters;
+
+        @Override
+        public boolean accept(File dir, String name) {
+            for (FilenameFilter filter : filters) {
+                if (filter.accept(dir, name)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

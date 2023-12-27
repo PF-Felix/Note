@@ -14,13 +14,13 @@ public class NoteTest {
     /**
      * 笔记目录是当前项目的父目录
      */
-    private final File noteFolder = new File(System.getProperty("user.dir")).getParentFile().getParentFile().getParentFile();
+    private final File noteFolder = new File("C:\\Note");
 
     @Test
     public void test() {
         System.out.println("当前项目的路径：" + noteFolder.getAbsolutePath());
         System.out.println("笔记数量：" + getFiles(noteFolder, ".md").length);
-        System.out.println("附件数量：" + getFiles(noteFolder, ".png", ".jpg", ".pdf").length);
+        System.out.println("附件数量：" + getFiles(noteFolder, ".png", ".jpg").length);
     }
 
     /**
@@ -30,7 +30,7 @@ public class NoteTest {
     @Test
     public void removeOnUsefulImages() throws IOException {
         //所有图片
-        File[] images = getFiles(noteFolder, ".png", ".jpg", ".pdf");
+        File[] images = getFiles(noteFolder, ".png", ".jpg");
         //所有 markdown 文件
         File[] mdFiles = getFiles(noteFolder, ".md");
         for (File image : images) {

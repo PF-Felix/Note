@@ -15,7 +15,11 @@ HDFS 中也有这两种方式
 - 假设 8点备份、9点备份、10点备份
 - 8点：NameNode 第一次开机，此时只写一次 FsImage
 - 9点：EditsLog 记录的是 8~9 点的日志，只需要将这部分日志更新到 8点的 FsImage 中就能得到9点的 FsImage
-- #待办事项 寻求另外一台机器来做？
+- 写日志的是 NameNode #待办事项 寻求另外一台机器来做？Secondary NameNode
+
+# 数据恢复与安全模式
+
+![zoom=40](Pasted%20image%2020231219171521.png)
 
 -----
 

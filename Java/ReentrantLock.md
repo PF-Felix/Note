@@ -78,6 +78,13 @@ public static void park(Object blocker) {
 
 ![zoom=60](Pasted%20image%2020231219105259.png)
 
+# VS synchronized
+
+- 一个是类，一个是关键字
+- ReentrantLock 功能更加丰富，支持公平锁和非公平锁，还可以指定等待锁资源的时
+- ReentrantLock 的锁基于 AQS，利用一个 CAS 维护的 volatile 变量实现
+  synchronized 是基于 ObjectMonitor
+
 -----
 
 #并发 #锁 

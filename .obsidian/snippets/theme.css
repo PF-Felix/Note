@@ -53,6 +53,8 @@ img[alt*="zoom=75"] {zoom:75%;}
 img[alt*="zoom=80"] {zoom:80%;}
 img[alt*="zoom=85"] {zoom:85%;}
 
+img[alt*="bgcw=1"] {background: rgba(255, 255, 255, 1); /* 半透明白色遮罩 */}
+
 /* 标题字体颜色 */
 .HyperMD-header-1,
 .HyperMD-header-2,

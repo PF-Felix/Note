@@ -88,5 +88,14 @@
       ],
       "key": "/"
     }
+  ],
+  "unique-attachments:rename-only-active-attachments": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "R"
+    }
   ]
 }

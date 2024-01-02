@@ -2,18 +2,18 @@
 
 ## 操作步骤
 
-![](Pasted%20image%2020231210234530.png)
-![](Pasted%20image%2020231210234638.png)
-![](Pasted%20image%2020231210234647.png)
-![](Pasted%20image%2020231210234653.png)
-![](Pasted%20image%2020231210234700.png)
-![](Pasted%20image%2020231210234709.png)
-![](Pasted%20image%2020231210234722.png)
-![](Pasted%20image%2020231210234731.png)
-![](Pasted%20image%2020231210234738.png)
-![](Pasted%20image%2020231210234748.png)
-![](Pasted%20image%2020231210234754.png)
-![](Pasted%20image%2020231210234800.png)
+![](49ea19e8af43d0d18a352a641faa4de0.png)
+![](8fd61a9ba22b37f98d726bf973bead0d.png)
+![](d710018d9d2f2dae97308a066e5e666c.png)
+![](f85d6a363d808001fa7f6f2d40b2a7f7.png)
+![](14405f231ee21ee8c7b6d30ff3163421.png)
+![](7fa1b612b04c11a9ed94636a5fc84a24.png)
+![](98ee2dc1ea6f196e8f76424496af6548.png)
+![](dd98deb825e50ccd352161e1b47c6016.png)
+![](cb6cc631043d855efbf85f841f974c4e.png)
+![](7ea259ea2e888dab29c3e69857ae10d8.png)
+![](1706915a76d4d7ad89b821cebc726573.png)
+![](2bb650bf641a95cefe5053e27bbfee69.png)
 
 最后一定记得设置网络和用户密码
 ## 问题与解决
@@ -31,7 +31,7 @@ Kernel panic - not syncing: Fatal exception
 # 设置固定IP地址
 
 编辑→虚拟网络编辑器，点右下角更改设置，为 VMnet8 更改子网 IP，如下图
-![](Pasted%20image%2020231211020218.png)
+![](9e07eead387d622eb86d7efb6b979e06.png)
 
 **虚拟机的 IP 总是变化怎么办？**
 
@@ -44,7 +44,7 @@ vi /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
 
 删除UUID行，删除DHCP行，再配置如下：
-![](Pasted%20image%2020231211020731.png)
+![](1a19b78220bc38962a10554df7560180.png)
 
 # 制作模板机
 
@@ -74,7 +74,7 @@ service ntpd start
 chkconfig ntpd on
 ```
 
-![](Pasted%20image%2020231211020532.png)
+![](0f20639e0d6403a7b731740955f51667.png)
 
 **关闭防火墙**
 
@@ -84,4 +84,4 @@ chkconfig ntpd on
 vi /etc/selinux/config
 ```
 
-![](Pasted%20image%2020231211020612.png)
+![](2f57d92a85298e09b1e4d01c7af5c7ff.png)

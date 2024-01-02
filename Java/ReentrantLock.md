@@ -1,18 +1,18 @@
 # 加锁
 
-![zoom=35](Pasted%20image%2020231219104956.png)
+![zoom=35](70e91b93dbc7965d1d5b37edab124cd0.png)
 
-![zoom=40](Pasted%20image%2020231219105035.png)
+![zoom=40](91374b6541e335acbdecd5b6c1550d33.png)
 
 根据上图，**公平锁和非公平锁**唯一的区别就在这里：
 - 非公平锁：无论何时都不会先排队，而是直接尝试 CAS 竞争锁
 - 公平锁：队列不空就先排队，队列为空才会尝试 CAS 竞争锁
 
-![zoom=45](Pasted%20image%2020231219105125.png)
+![zoom=45](d45da21938db9f285b3572ed2ecf5511.png)
 
 相关的详细代码如下：
 
-![zoom=60](Pasted%20image%2020231219105150.png)
+![zoom=60](d1b575a2a6ab27301c80016a27211627.png)
 
 ```java
 //如果没有获得锁，addWaiter(Node.EXCLUSIVE)，将当前线程封装为Node节点，插入到AQS的双向链表的结尾
@@ -74,9 +74,9 @@ public static void park(Object blocker) {
 
 # 解锁
 
-![zoom=40](Pasted%20image%2020231219105232.png)
+![zoom=40](0cd5830962c8df9a74ba8afa71d97e45.png)
 
-![zoom=60](Pasted%20image%2020231219105259.png)
+![zoom=60](83450878676e833137ad7928ba78ccbc.png)
 
 # VS synchronized
 

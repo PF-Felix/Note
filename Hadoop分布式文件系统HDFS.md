@@ -19,7 +19,7 @@ HDFS 中也有这两种方式
 
 # 数据恢复与安全模式
 
-![zoom=40](Pasted%20image%2020231219171521.png)
+![zoom=40](2afaec369e64602daab21576a1baca85.png)
 
 -----
 

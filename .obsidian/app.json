@@ -9,5 +9,6 @@
   "userIgnoreFilters": null,
   "readableLineLength": false,
   "foldIndent": false,
-  "foldHeading": false
+  "foldHeading": false,
+  "alwaysUpdateLinks": true
 }

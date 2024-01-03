@@ -14,7 +14,7 @@ public class NoteTest {
     /**
      * 笔记目录是当前项目的父目录
      */
-    private final File noteFolder = new File("C:\\Note");
+    private final File noteFolder = new File("D:\\Note");
 
     @Test
     public void test() {

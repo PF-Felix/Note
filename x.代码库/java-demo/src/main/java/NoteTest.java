@@ -20,7 +20,7 @@ public class NoteTest {
     public void test() {
         System.out.println("当前项目的路径：" + noteFolder.getAbsolutePath());
         System.out.println("笔记数量：" + getFiles(noteFolder, ".md").length);
-        System.out.println("附件数量：" + getFiles(noteFolder, ".png", ".jpg").length);
+        System.out.println("图片附件数量：" + getFiles(noteFolder, ".png", ".jpg").length);
     }
 
     /**

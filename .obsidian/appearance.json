@@ -9,5 +9,6 @@
   "baseFontSize": 14,
   "monospaceFontFamily": "Cascadia Mono,微软雅黑",
   "translucency": false,
-  "interfaceFontFamily": "Cascadia Mono,微软雅黑"
+  "interfaceFontFamily": "Cascadia Mono,微软雅黑",
+  "theme": "system"
 }

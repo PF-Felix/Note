@@ -2,8 +2,7 @@
   "editor:toggle-bold": [
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Mod"
       ],
       "key": "1"
     }
@@ -11,8 +10,7 @@
   "editor:toggle-strikethrough": [
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Mod"
       ],
       "key": "2"
     }
@@ -20,8 +18,7 @@
   "editor:toggle-italics": [
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Mod"
       ],
       "key": "3"
     }
@@ -29,8 +26,7 @@
   "editor:toggle-code": [
     {
       "modifiers": [
-        "Mod",
-        "Shift"
+        "Mod"
       ],
       "key": "4"
     }
@@ -44,44 +40,7 @@
       "key": "K"
     }
   ],
-  "outline:open": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "2"
-    }
-  ],
-  "file-explorer:open": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "1"
-    }
-  ],
-  "tag-pane:open": [
-    {
-      "modifiers": [
-        "Alt",
-        "Mod"
-      ],
-      "key": "3"
-    }
-  ],
   "switcher:open": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "Q"
-    }
-  ],
-  "editor:toggle-comments": [],
-  "editor:toggle-source": [
     {
       "modifiers": [
         "Mod"
@@ -89,6 +48,7 @@
       "key": "/"
     }
   ],
+  "editor:toggle-comments": [],
   "unique-attachments:rename-only-active-attachments": [
     {
       "modifiers": [
@@ -97,5 +57,33 @@
       ],
       "key": "R"
     }
-  ]
+  ],
+  "editor:toggle-checklist-status": [],
+  "editor:delete-paragraph": [],
+  "workspace:close": [],
+  "file-explorer:reveal-active-file": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "N"
+    }
+  ],
+  "file-explorer:new-file": [],
+  "app:open-help": [],
+  "editor:follow-link": [],
+  "workspace:goto-tab-1": [],
+  "workspace:goto-tab-2": [],
+  "workspace:goto-tab-3": [],
+  "workspace:goto-tab-4": [],
+  "workspace:goto-tab-5": [],
+  "workspace:goto-tab-6": [],
+  "workspace:goto-tab-7": [],
+  "workspace:goto-tab-8": [],
+  "workspace:previous-tab": [],
+  "workspace:next-tab": [],
+  "workspace:goto-last-tab": [],
+  "workspace:edit-file-title": [],
+  "workspace:close-window": [],
+  "app:open-settings": []
 }

@@ -1,224 +1,17 @@
-# Docker
-
-## 安装
-
-![image-20230409051715273](C:\Note\x.附件夹\image-20230409051715273.png)
-
-![image-20230409051742182](C:\Note\x.附件夹\image-20230409051742182.png)
-
-`wget -O /etc/yum.repos.d/docker-ce.repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo`
-
-![image-20230409052027162](C:\Note\x.附件夹\image-20230409052027162.png)
-
-```shell
-#安装docker-ce
-yum -y install docker-ce
-
-#启动
-systemctl start docker
-docker version
-#设置开机自启
-systemctl enable docker
-
-#测试是否可用
-docker ps
-```
-
-遇到的问题：
-![image-20230409052128360](C:\Note\x.附件夹\image-20230409052128360.png)
-
-解决方案：
-检查`/etc/docker/daemon.json`文件
-添加内容：`{"registry-mirrors":["https://registry.docker-cn.com"]}`
-
-```shell
-systemctl daemon-reload
-systemctl restart docker.service
-```
-
-## 容器镜像加速器
-
-![image-20230409052525607](C:\Note\x.附件夹\image-20230409052525607.png)
-
-```shell
-sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["https://o4osh0q0.mirror.aliyuncs.com"]
-}
-EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
-```
-
-## 常用命令
-
-镜像相关：
-
-```shell
-#查看镜像
-docker images
-#搜索镜像
-docker search nginx
-#下载镜像
-docker pull nginx
-#删除镜像
-docker rmi 5d0da3dc9764
-docker rmi nginx
-
-#将内存镜像保存到本地
-docker save -o nginx.tar nginx:v1
-#加载本地镜像到内存
-docker load -i nginx.tar
-
-#登录/退出，登录之后再下载和上传镜像
-docker login/logout
-#重新为镜像打标
-docker tag centos:latest dockersmartmsb/centos:v1
-#上传/下载镜像
-docker push/pull dockersmartmsb/centos:v1
-```
-
-容器相关：
-
-```shell
-#查看容器
-docker ps
-docker ps -a
-#运行容器 -i交互式 -t提供终端 -name容器名称 bash在容器中执行命令
-docker run -i -t --name c1 centos bash
-#查看网络信息
-ip a s
-#查看进程
-ps aux
-
-#进入容器
-docker exec -it container bash
-#进入容器，退出容器时，如不需要容器再运行exit退出，如需要容器继续运行可使用ctrl+p+q
-docker attach container
-#启动/停止/删除容器
-docker start/stop/rm 359efebd70d2
-
-#查看容器的日志
-docker logs ID
-
-#容器与宿主机文件传输
-docker cp [host_path] [container_id]:[container_path]
-docker cp [container_id]:[container_path] [host_path]
-```
-
-容器与镜像：
-
-```shell
-#把容器提交为一个镜像
-docker commit 7dXXXXX n1:v1
-
-#将容器导出
-docker export -o centos.tar 7dXXXX
-#导入镜像
-docker import centos.tar centos:v1
-
-#批量清理镜像
-docker rmi $(docker images -q)
-#批量清理停止的容器
-docker rm $(docker ps -a -q)
-#批量停止正在运行的容器
-docker stop $(docker ps -q)
-```
-
-## 自建镜像仓库
-
-这里使用 harbor
-
-```shell
-#下载docker-compose
-wget https://dn-dao-github-mirror.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-Linux-x86_64
-#移动到/usr/bin目录，并更名为docker-compose
-mv docker-compose-Linux-x86_64 /usr/bin/docker-compose
-#添加可执行权限
-chmod +x /usr/bin/docker-compose
-#查看版本
-docker-compose -v
-
-#下载harbor
-wget https://github.com/goharbor/harbor/releases/download/v2.4.1/harbor-offline-installer-v2.4.1.tgz
-tar xxx harbor-offline-installer-v2.4.1.tgz
-cd harbor/
-
-#配置文件修改下面几点
-hostname: my.harbor.com
-certificate: /data/cert/my.harbor.com.crt
-private_key: /data/cert/my.harbor.com.key
-
-./prepare
-./install.sh
-```
-
-验证：
-
-```shell
-docker ps
-
-IMAGE                                COMMAND                  CREATED          STATUS
-goharbor/nginx-photon:v2.4.1         "nginx -g 'daemon of…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/harbor-jobservice:v2.4.1    "/harbor/entrypoint.…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/harbor-core:v2.4.1          "/harbor/entrypoint.…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/harbor-registryctl:v2.4.1   "/home/harbor/start.…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/harbor-db:v2.4.1            "/docker-entrypoint.…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/registry-photon:v2.4.1      "/home/harbor/entryp…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/redis-photon:v2.4.1         "redis-server /etc/r…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/harbor-portal:v2.4.1        "nginx -g 'daemon of…"   37 minutes ago   Up 37 minutes (healthy)
-goharbor/harbor-log:v2.4.1           "/bin/sh -c /usr/loc…"   37 minutes ago   Up 37 minutes (healthy)
-```
-
-在物理机访问浏览器：
-![image-20230414195136464](C:\Note\x.附件夹\image-20230414195136464.png)
-
-也可以用下面的方法验证：
-
-```shell
-vim /etc/hosts
-10.0.0.11 my.harbor.com
-
-docker login my.harbor.com
-```
-
-配置证书参考：https://www.jianshu.com/p/7766759ab071
-![image-20230414195542761](C:\Note\x.附件夹\image-20230414195542761.png)
-
-修改 /etc/docker/daemon.json 使用harbor：
-
-```shell
-{
-    "insecure-registries": ["my.harbor.com"]
-}
-```
-
-```shell
-systemctl daemon-reload
-systemctl restart docker
-
-docker tag centos:v1 my.harbor.com/peoject_name/centos:v2
-docker push
-docker pull my.harbor.com/peoject_name/centos:v2
-```
-
-harbor 怎么做高可用？两个 harbor 可以使用同一个存储卷
-
-# K8S核心概念
+# 🥇核心概念
 
 ## 各种容器编排工具
 
-==Docker Compose==
+**Docker Compose**
 是一个用于定义和运行多容器的工具，使用 YAML 作为配置文件，使用一个命令就可以根据配置创建并启动所有服务
 局限是适合于单主机，不适用多主机分布式集群环境
 
-==Docker Swarm==
+**Docker Swarm**
 内置于 Docker，可以进行集群级别的管理，使用 YAML 作为配置文件
 服务规模可扩大可缩小，支持服务发现、负载均衡、滚动更新
 2019年阿里云宣布弃用
 
-==Mesos+Marathon==
+**Mesos+Marathon**
 Mesos 是一个分布式系统内核的开源集群管理器，Marathon 是一个基于容器的应用程序的编排框架
 Mesos 能够在同样的集群机器上运行多种分布式系统类型，可以更加动态高效的共享资源
 Mesos 提供服务失败检查、服务发布、服务伸缩、服务跟踪、服务监控、资源管理、资源共享
@@ -226,7 +19,7 @@ Mesos 可以扩展伸缩到数千个节点，适合于如果你拥有很多的�
 但是大而全，往往就是对应的复杂和困难，使用户快速学习应用变得更加困难
 2019年 Twitter 宣布弃用
 
-==kubernetes==
+**kubernetes**
 目标是让部署容器化的应用变得简单且高效，提供了应用部署、规划、更新、维护一整套完整的机制
 除了 Docker 之外还支持其他多种容器，如 Containerd、rkt、CoreOS 等
 可以实现容器调度、资源管理、服务发现、健康检查、自动伸缩、更新升级
@@ -235,42 +28,42 @@ Mesos 可以扩展伸缩到数千个节点，适合于如果你拥有很多的�
 
 ## 节点
 
-==master节点==
+**master节点**
 K8S集群的管理节点，提供集群的资源访问入口
 可以拥有分布式高可用的 etcd 存储服务，运行了 ApiServer、Scheduler、ControllerManager 服务
 
-==worker节点==
+**worker节点**
 也叫 node 节点，是运行 Pod 服务的节点、运行守护进程 Kubelet、负载均衡器 kube-proxy
 
 ## 组件
 
-==ApiServer==
+**ApiServer**
 K8s集群内部各功能模块的通信（master节点）
 
-==Scheduler==
+**Scheduler**
 负责集群资源调度，将 Pod 调度到相应的 node 节点上（master节点）
 
-==ControllerManager==
+**ControllerManager**
 维护集群状态，比如程序部署安排、故障检测、自动扩展、滚动更新（master节点）
 
-==Etcd==
+**Etcd**
 分布式数据库（master节点）
 
-==Kubelet==
+**Kubelet**
 worker节点
 向 apiserver 注册节点自身信息，处理 apiserver 下发到本节点的指令，管理 Pod 的生命周期，定期向 master 汇报节点资源的使用情况（使用 cAdvisor 监控节点资源）
 
-==kubectl==
+**kubectl**
 是一个命令行工具，可以控制K8S集群管理器，如查看资源，创建、删除和更新组件（master节点）
 
-==kube-proxy==
+**kube-proxy**
 是Service的负载均衡器，将某个Service的访问请求转发到后端的多个Pod实例上（worker节点）
 
 ## kubectl常用命令
 
 `kubectl -h`查看帮助
-![image-20230409054828879](C:\Note\x.附件夹\image-20230409054828879.png)
-![image-20230409054858310](C:\Note\x.附件夹\image-20230409054858310.png)
+![](829e67048981a0d55a2c7ce7e59edc15.png)
+![](3b1e0e79e1f92a9789a179690c23cdd0.png)
 
 ```shell
 #查看资源支持的版本
@@ -353,7 +146,7 @@ Pod 是 K8S 中 中最小的计算单元，包含一个或多个容器，容器�
 Pod 的 IP 不是固定的，集群外不能直接访问
 同一个 Pod 中所有容器网络共享
 
-==YML创建Pod==
+**YML创建Pod**
 
 ```yaml
 apiVersion: v1
@@ -370,7 +163,7 @@ spec:
       image: nginx:1.15    #镜像
 ```
 
-==资源限制==
+**资源限制**
 
 ```yaml
 apiVersion: v1
@@ -394,12 +187,12 @@ spec:
 
 这个重启是无法启动的，如果把 250 改为 100 就可以成功启动了
 
-==部署到特定Node==
+**部署到特定Node**
 
 `spec.nodeName`定义主机名可以将 pod 部署到特定的 node
 `spec.nodeSelector`定义一些标签用于将 pod 调度到匹配标签的 node
 
-==探针==
+**探针**
 
 | 检查方式 | |
 | --- | --- |
@@ -407,13 +200,15 @@ spec:
 | httpget | 请求某个URL，响应码是 2XX or 3XX 表示健康 |
 | tcp | 连接某个端口，若能建立连接表示健康 |
 
-| 探针种类 | |
-| --- | --- |
+| 探针种类 |  |
+| ---- | ---- |
 | liveness | 如果探测失败，容器将被杀死 |
 | readiness | 如果探测失败，与 pod 匹配的服务的端点列表将删除这个 pod 的 IP |
 | startup | 如果提供了此探针，其他探针暂时禁用，直到此探针成功；如果探测失败，容器将被杀死 |
+|  |  |
 
-**liveness-exec**
+~~liveness-exec~~
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -436,9 +231,11 @@ spec:
       periodSeconds: 5          #每5秒探测1次
 
 ```
+
 `watch kubectl get pods`
 
-**liveness-httpget**
+~~liveness-httpget~~
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -455,10 +252,12 @@ spec:
       initialDelaySeconds: 5
       periodSeconds: 5
 ```
+
 `watch kubectl get pods`监控状态与重启次数
 `kubectl exec -it pod-liveness-httpget -- rm -rf /usr/share/nginx/html/index.html`删除这个文件后发现 Pod 重启了一次
 
-**liveness-tcp**
+~~liveness-tcp~~
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -474,10 +273,12 @@ spec:
       initialDelaySeconds: 5
       periodSeconds: 5
 ```
+
 监控重启次数
 `kubectl exec -it pod-liveness-tcp -- /usr/sbin/nginx -s stop`停掉 nginx 之后 Pod 重启一次
 
 **postStart&preStop**
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -495,6 +296,7 @@ spec:
           - -p
           - /tmp/xxx
 ```
+
 检查 xxx 目录是否存在`kubectl exec -it pod-poststart -- ls /tmp`
 
 ## Controller
@@ -516,7 +318,7 @@ spec:
 2、数据持久化：所有 Pod 共享存储
 3、Pod 之间无需通信；Pod 名称随机IP随机因此做不到稳定通信（可以通过IP通信因为都在同网段）
 
-==部署==
+**部署**
 
 ```yaml
 apiVersion: apps/v1
@@ -540,13 +342,13 @@ spec:
 ```
 
 部署之后查看如下图：
-![image-20230409055758030](C:\Note\x.附件夹\image-20230409055758030.png)
+![](db3f73f039f2f0b40d7c200f7cd3a5ad.png)
 
 在任意一个节点 curl PodIP 都能访问到 nginx 的默认页面，但在外网（比如宿主机）就无法访问
 
 ### StatefulSet
 
-==同 Deployment 相比==
+**同 Deployment 相比**
 支持扩容缩容，查看《常用命令》
 支持版本升级，查看《常用命令》，不同点是 deploy 一次性全升级，statefulset 支持灰度发布只升级一部分
 删除 Pod 马上就能看到又一个 Pod 被创建出来（名称等不变），先删除再创建
@@ -556,7 +358,7 @@ spec:
 2、数据持久化：每个 pod 都有自己的存储保存数据，通过 volumeClaimTemplates 实现
 3、Pod 之间有可能需要通信，Pod IP随机但名称固定，DNS可以将名称解析为IP，因此可以稳定通信
 
-==部署==
+**部署**
 
 ```yaml
 apiVersion: v1
@@ -639,7 +441,7 @@ spec:
       restartPolicy: Never
 ```
 
-![image-20230409060236097](C:\Note\x.附件夹\image-20230409060236097.png)
+![](4fb7587f0c157d1c4d0aeb77b16636d8.png)
 
 ### CronJob
 
@@ -671,24 +473,25 @@ spec:
 
 ## Service
 
-Pod 经常用后即焚，IP地址经常变化，无法稳定直接访问 Pod 提供的服务，于是有了 Service
-Service 把 Pod 的 IP地址加入端点列表（Endpoints），通过 Service 代理访问 Pod
-Service 和 Pod 通过标签关联，Service 通过标签感知 Pod IP地址的变化
+- Pod 经常用后即焚，IP地址经常变化，无法稳定直接访问 Pod 提供的服务，于是有了 Service
+- Service 把 Pod 的 IP地址加入端点列表（Endpoints），通过 Service 代理访问 Pod
+- Service 和 Pod 通过标签关联，Service 通过标签感知 Pod IP地址的变化
 
-Pod 通过 Service 实现==负载均衡==，底层实现是 kube-proxy 提供的==代理模式==，有三种
-1、userspace：第一代，性能不高不推荐使用了
-2、iptables：第二代，比第一代性能高
-原理：通过 apiserver 的 watch 接口实时跟踪 service 与 Endpoint 的变更信息，并更新对应的iptables 规则，请求通过 iptables 的 NAT 机制路由到目标 Pod
-3、ipvs：专门用于高性能负载均衡，第三代优于第二代，缺点是低版本的内核无法使用
-原理：使用 iptables 的扩展 ipset，而不是直接调用 iptables 来生成规则链。iptables 规则链是一个线性的数据结构，ipset 则引入了带索引的数据结构，因此当规则很多时，也可以很高效地查找和匹配
-1.10版本前用 iptables
-1.11版本后可同时用 iptables、ipvs，默认ipvs，如果ipvs没有加载，会自动降级至iptables
+Pod 通过 Service 实现**负载均衡**，底层实现是 kube-proxy 提供的**代理模式**，有三种
+1. ~~userspace~~第一代，性能不高不推荐使用了
+2. ~~iptables~~第二代，比第一代性能高
+    1. 原理：通过 apiserver 的 watch 接口实时跟踪 service 与 Endpoint 的变更信息，并更新对应的iptables 规则，请求通过 iptables 的 NAT 机制路由到目标 Pod
+3. ~~ipvs~~专门用于高性能负载均衡，第三代优于第二代，缺点是低版本的内核无法使用
+    1. 原理：使用 iptables 的扩展 ipset，而不是直接调用 iptables 来生成规则链。iptables 规则链是一个线性的数据结构，ipset 则引入了带索引的数据结构，因此当规则很多时，也可以很高效地查找和匹配
+4. 1.10版本前用 iptables
+5. 1.11版本后可同时用 iptables、ipvs，默认ipvs，如果ipvs没有加载，会自动降级至iptables
 
 service 有下面几种类型：
 
 ### ClusterIP
 
 普通的 ClusterIP
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -720,6 +523,7 @@ spec:
       - name: c1
         image: nginx:1.15
 ```
+
 提供集群内部（Pod）可以访问的虚拟IP，通过 kube-proxy 做负载均衡访问各个 Pod（curl clusterIP）
 deployment 情况下：Pod 的全限定域名就是 Pod 名称，通过 hostname -f 命令查看
 statefulset 情况下：Pod 的全限定域名与用 headless service 是一样的
@@ -766,7 +570,7 @@ spec:
         command: ["/bin/sh", "-c", "tail -f /dev/null"]
 ```
 
-![image-20230409060709117](C:\Note\x.附件夹\image-20230409060709117.png)
+![](b04175fe91c80943141f3fb0f672e084.png)
 
 举例2：搭配 statefulset，pod 的全限定域名是固定不变的
 
@@ -805,7 +609,7 @@ spec:
 
 ```
 
-![image-20230409060720295](C:\Note\x.附件夹\image-20230409060720295.png)
+![](a8393b806712ef35a785b0d47bbc27f7.png)
 
 ### NodePort
 
@@ -842,6 +646,7 @@ spec:
       - name: c1
         image: nginx:1.15
 ```
+
 在 ClusterIP 的基础上，在每个 Node 上分配一个端口作为集群访问入口
 首先它是一个普通的 service
 而且集群内`curl 10.0.0.14:30001`可以访问到 Pod，也支持负载均衡，能够给外网访问了
@@ -885,7 +690,7 @@ spec:
 ```
 
 需要搭配云服务负载均衡器
-![image-20230409060749523](C:\Note\x.附件夹\image-20230409060749523.png)
+![](b7d604c3a0f913cdc6f9b76d15d898ce.png)
 
 首先它是一个普通的 service，而且它是一个 NodePort Service 只不过端口不能指定
 使用外接负载均衡器完成到服务的分发，需要`spec.status.loadBalancer`指定外接IP地址
@@ -932,7 +737,7 @@ kubectl scale deployment ingress-nginx-controller -n ingress-nginx --replicas=5
 #最终健康的状态如下图所示
 ```
 
-![image-20230409060935954](C:\Note\x.附件夹\image-20230409060935954.png)
+![](1b23ef23a6e14f42481c5d59148739b6.png)
 
 ### 一个应用
 
@@ -995,13 +800,13 @@ spec:
 
 上述代码 apply 之后，得到的状态如下图
 
-![image-20230409061051127](C:\Note\x.附件夹\image-20230409061051127.png)
-![image-20230409061101653](C:\Note\x.附件夹\image-20230409061101653.png)
+![](d01fafa4772abeeeb66e851f95797974.png)
+![](c95b8dc3f97b5c3fa875c88450347972.png)
 
 先验证 service/nginx-service 是负载均衡的
 
-![image-20230409061112359](C:\Note\x.附件夹\image-20230409061112359.png)
-![image-20230409061119951](C:\Note\x.附件夹\image-20230409061119951.png)
+![](738aa98258e2caad25bd8c1efe7e94f1.png)
+![](c1ed23f546dd7aa2f4bf6429f735daa1.png)
 
 宿主机访问测试，也是负载均衡
 
@@ -1014,11 +819,12 @@ spec:
 ipconfig /flushdns
 ```
 
-![image-20230409061136095](C:\Note\x.附件夹\image-20230409061136095.png)
+![](5e4af1eef6453f0496d36e0ddc99ac34.png)
 
 ### 两个应用两个域名
 
 在一个应用的基础上，增加第二个应用
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -1076,8 +882,8 @@ spec:
               number: 80
 ```
 
-![image-20230409061153845](C:\Note\x.附件夹\image-20230409061153845.png)
-![image-20230409061200804](C:\Note\x.附件夹\image-20230409061200804.png)
+![](10620502407f99d4e7b9a3b5793aba0d.png)
+![](e916645338916804cd219088c834dbc9.png)
 
 宿主机访问测试，也是负载均衡
 
@@ -1089,7 +895,7 @@ spec:
 10.0.0.15 www.kubemsb1.com
 ```
 
-![image-20230409061210174](C:\Note\x.附件夹\image-20230409061210174.png)
+![](d6abb8a11bef5d66eb75619fca0c24b2.png)
 
 ### 一个应用两个URL
 
@@ -1194,7 +1000,7 @@ spec:
 ```
 
 再在四个 Pod 中做下面的操作
-![image-20230409061226659](C:\Note\x.附件夹\image-20230409061226659.png)
+![](db92c9e74d172d4214b55cb25ad6b9cf.png)
 
 然后访问`http://www.kubemsb.com:30080/svc1`和`http://www.kubemsb.com:30080/svc2`就可以查看负载均衡效果了
 
@@ -1202,7 +1008,7 @@ spec:
 
 如果使用上面的`service.type=NodePort`的 ingress-nginx 控制器，在前面加一个负载均衡的代理
 
-# K8S高可用集群部署
+# 🥇高可用集群部署
 
 > k8s版本：v1.21
 
@@ -1369,6 +1175,7 @@ systemctl disable NetworkManager
 ```shell
 yum -y install ipvsadm ipset sysstat conntrack libseccomp
 ```
+
 ```shell
 cat > /etc/sysconfig/modules/ipvs.modules <<EOF
 #!/bin/bash
@@ -1379,6 +1186,7 @@ modprobe -- ip_vs_sh
 modprobe -- nf_conntrack
 EOF
 ```
+
 ```shell
 cat >/etc/modules-load.d/ipvs.conf <<EOF
 ip_vs
@@ -1405,6 +1213,7 @@ ipt_REJECT
 ipip
 EOF
 ```
+
 ```shell
 #设置为开机启动
 systemctl enable --now systemd-modules-load.service
@@ -1445,7 +1254,9 @@ ssh-copy-id root@worker2
 ssh-copy-id root@lb1
 ssh-copy-id root@lb2
 ```
+
 ## HAProxy+Keepalived
+
 > master节点的高可用，两个主机都得配置
 > kublet、kube-proxy 配置中静态指定了某个 kube-apiserver 实例的 IP，如果该实例挂掉可能服务异常
 
@@ -1454,6 +1265,7 @@ ssh-copy-id root@lb2
 ```shell
 yum -y install haproxy keepalived
 ```
+
 ```shell
 #修改haproxy配置，两个节点完全相同
 vi /etc/haproxy/haproxy.cfg
@@ -1479,6 +1291,7 @@ backend apiserver
 systemctl enable haproxy
 systemctl start haproxy
 ```
+
 ```shell
 #在lb1修改keepalived配置
 vi /etc/keepalived/keepalived.conf
@@ -1624,7 +1437,8 @@ xxx --control-plane --certificate-key yyy
 #新worker加入集群
 xxx
 ```
-![image-20230315042710390](C:\Note\x.附件夹\image-20230315042710390.png)
+
+![](81e401645c89b8c41f16db79a37180e1.png)
 
 ### 集群网络准备
 
@@ -1633,6 +1447,7 @@ xxx
 [官网](https://docs.tigera.io/archive/v3.22/getting-started/kubernetes/self-managed-onprem/onpremises#install-calico-with-kubernetes-api-datastore-50-nodes-or-less)
 
 安装 calico
+
 ```shell
 #注意K8S与calico插件和兼容版本
 curl https://projectcalico.docs.tigera.io/archive/v3.22/manifests/calico.yaml -O
@@ -1651,15 +1466,17 @@ docker pull docker.io/calico/kube-controllers:v3.22.5
 
 #安装成功看下面图片
 ```
-![image-20230315042803037](C:\Note\x.附件夹\image-20230315042803037.png)
 
-![image-20230315042845196](C:\Note\x.附件夹\image-20230315042845196.png)
+![zoom=65](24089f38a2a5406f56f435ac316a87c4.png)
 
-![image-20230315042855844](C:\Note\x.附件夹\image-20230315042855844.png)
+![zoom=60](515e7c11be31fc6b23baed57f144f9a0.png)
+
+![zoom=60](25e17bc47a224bd333c61da65df3d244.png)
 
 [kubectl get cs 组件不健康的解决办法](https://www.cnblogs.com/xhg-Cathy/p/15714949.html)
 
 安装 calicoctl
+
 ```shell
 wget https://github.com/projectcalico/calico/releases/download/v3.22.5/calicoctl-linux-amd64
 
@@ -1683,49 +1500,7 @@ docker run -d \
   eipwork/kuboard:v3
 ```
 
-# Docker面试题
-
-## Docker与虚拟机有啥不同
-
-Docker 是轻量级的沙盒，在其中运行的只是应用
-虚拟机里面还有额外的系统
-
-## Dockerfile中copy和add指令区别
-
-copy：文件复制
-add：复制文件并解压缩，支持URL
-
-## 本地的镜像文件存放在哪里
-
-与 Docker 相关的本地资源都存放在`/var/lib/docker/`目录下
-其中 container 目录存放容器信息，graph 目录存放镜像信息，aufs 目录下存放具体的内容文件
-
-## 迁移Docker到另一台宿主机
-
-将本地资源全部迁移过去即可，即`/var/lib/docker/`目录
-
-## 如何查看镜像运行的环境变量
-
-docker run 镜像名称 env
-
-## 如何退出一个镜像的bash而不终止它
-
-先按 Ctrl+p，后按 Ctrl+q，如果按 Ctrl+c 会使容器内的应用进程终止，进而会使容器终止
-
-## 退出容器的时候自动删除
-
-docker run 的时候加上参数 -rm，例如：docker run –rm -it ubuntu
-
-## 可以在一个容器运行多个应用进程吗
-
-一般不推荐
-
-## 如何控制容器占用资源的大小
-
-docker run 运行容器时，用 -c 来调整容器使用 CPU 的权重，用 -m 来调整容器使用内存的大小
-
-
-# K8S面试题
+# 🥇面试题
 
 ## K8S和Docker的关系
 

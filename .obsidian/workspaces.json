@@ -1,0 +1,124 @@
+{
+  "workspaces": {
+    "工作区布局": {
+      "main": {
+        "id": "4c0c304ebf18c115",
+        "type": "split",
+        "children": [
+          {
+            "id": "42e28d7f4a68bd96",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "611727401da3a118",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "a06009b8e0081db0",
+        "type": "split",
+        "children": [
+          {
+            "id": "60550f65750c89be",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc09964c71fc9846",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "dc6bea01ab84822b",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "a27dc8b3b8154407",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "ff3d0787cddddda9",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {}
+                }
+              },
+              {
+                "id": "a19a552bc31a90d3",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "5ff5a3c04b63b643",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 323.5
+      },
+      "right": {
+        "id": "af3fb1f8e742e111",
+        "type": "split",
+        "children": [],
+        "direction": "horizontal",
+        "width": 252.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false
+        }
+      },
+      "active": "dc09964c71fc9846"
+    }
+  },
+  "active": "工作区布局"
+}
